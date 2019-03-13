@@ -33,6 +33,9 @@ TARGET_OTA_ASSERT_DEVICE := tulip,twolip
 # Kernel
 TARGET_KERNEL_CONFIG := tulip_defconfig
 
+# RIL
+TARGET_USES_OLD_MNC_FORMAT := true
+
 # Security patch level
 VENDOR_SECURITY_PATCH := 2018-11-01
 
