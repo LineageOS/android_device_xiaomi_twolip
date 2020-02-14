@@ -65,5 +65,10 @@ PRODUCT_PACKAGES += \
     fstab.qcom \
     init.device.rc
 
+# Shims
+PRODUCT_PACKAGES += \
+    libcamera_sdm660_shim \
+    libMiWatermark_shim
+
 # Inherit proprietary files
 $(call inherit-product-if-exists, vendor/xiaomi/twolip/twolip-vendor.mk)
