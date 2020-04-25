@@ -67,8 +67,7 @@ PRODUCT_PACKAGES += \
 
 # Shims
 PRODUCT_PACKAGES += \
-    libcamera_sdm660_shim \
-    libMiWatermark_shim
+    libcamera_sdm660_shim
 
 # USB
 PRODUCT_PACKAGES += \
