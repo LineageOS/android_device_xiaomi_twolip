@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# Copyright (C) 2018-2019 The LineageOS Project
+# Copyright (C) 2018-2020 The LineageOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -15,6 +15,18 @@
 # limitations under the License.
 #
 
+function blob_fixup() {
+    case "${1}" in
+
+    # Make shim for libcamera.sdm660.so
+    vendor/lib/hw/camera.sdm660.so)
+        for  LIBCAMERA_SHIM in $(grep -L "libcamera_sdm660_shim.so" "${2}"); do
+            patchelf --add-needed "libcamera_sdm660_shim.so" "$LIBCAMERA_SHIM"
+        done
+        ;;
+    esac
+}
+
 set -e
 
 export DEVICE=twolip
@@ -23,11 +35,3 @@ export DEVICE_BRINGUP_YEAR=2019
 export DEVICE_COMMON=sdm660-common
 
 ./../../$VENDOR/$DEVICE_COMMON/extract-files.sh "$@"
-
-MY_DIR="${BASH_SOURCE%/*}"
-if [[ ! -d "$MY_DIR" ]]; then MY_DIR="$PWD"; fi
-
-LINEAGE_ROOT="$MY_DIR"/../../..
-DEVICE_BLOB_ROOT="$LINEAGE_ROOT"/vendor/"$VENDOR"/"$DEVICE"/proprietary
-
-patchelf --add-needed libcamera_sdm660_shim.so "$DEVICE_BLOB_ROOT"/vendor/lib/hw/camera.sdm660.so
