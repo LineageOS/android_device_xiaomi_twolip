@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "34db4e2b_c0715e7f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 19252
+      },
+      "writtenOn": "2021-10-11T15:23:16Z",
+      "side": 1,
+      "message": "This should be twolip",
+      "revId": "6fb52b782d30cd4a9021fd56e566d698d6a15a6a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
